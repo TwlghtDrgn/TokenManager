@@ -63,6 +63,11 @@ repositories {
         url 'https://repo.inventivetalent.org/content/groups/public/'
     }
 
+    maven {
+        name 'jitpack'
+        url 'https://jitpack.io'
+    }
+
     flatDir {
         dirs "$rootDir/libs/"
     }
@@ -83,6 +88,7 @@ dependencies {
     compile 'com.zaxxer:HikariCP:4.0.2'
     compile 'org.slf4j:slf4j-nop:1.7.32'
     compile 'org.bstats:bstats-bukkit:1.7'
+    implementation 'com.github.plan-player-analytics:Plan:5.5.2307'
 }
 
 clean.doFirst {
