@@ -224,12 +224,7 @@ public final class ItemUtil {
         }
 
         if (key.equalsIgnoreCase("unbreakable") && value.equalsIgnoreCase("true")) {
-            if (CompatUtil.isPre1_12()) {
-                meta.spigot().setUnbreakable(true);
-            } else {
-                meta.setUnbreakable(true);
-            }
-
+            meta.setUnbreakable(true);
             item.setItemMeta(meta);
             return;
         }
@@ -297,7 +292,8 @@ public final class ItemUtil {
     }
 
     public static void copyNameLore(final ItemStack from, final ItemStack to) {
-        final ItemMeta fromMeta = from.getItemMeta(), toMeta = to.getItemMeta();
+        final ItemMeta fromMeta = from.getItemMeta();
+        final ItemMeta toMeta = to.getItemMeta();
 
         if (fromMeta.hasDisplayName()) {
             toMeta.setDisplayName(fromMeta.getDisplayName());

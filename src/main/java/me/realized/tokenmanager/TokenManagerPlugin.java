@@ -27,6 +27,7 @@ import me.realized.tokenmanager.util.Reloadable;
 import me.realized.tokenmanager.util.StringUtil;
 import me.realized.tokenmanager.util.UpdateChecker;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -77,7 +78,7 @@ public class TokenManagerPlugin extends JavaPlugin implements TokenManager, List
         loadables.add(new HookManager(this));
 
         if (!load()) {
-            getPluginLoader().disablePlugin(this);
+            Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
 
@@ -90,20 +91,20 @@ public class TokenManagerPlugin extends JavaPlugin implements TokenManager, List
             return;
         }
 
-        final UpdateChecker updateChecker = new UpdateChecker(this, RESOURCE_ID);
-        updateChecker.check((hasUpdate, newVersion) -> {
-            if (hasUpdate) {
-                TokenManagerPlugin.this.updateAvailable = true;
-                TokenManagerPlugin.this.newVersion = newVersion;
-                Log.info("===============================================");
-                Log.info("An update for " + getName() + " is available!");
-                Log.info("Download " + getName() + " v" + newVersion + " here:");
-                Log.info(getDescription().getWebsite());
-                Log.info("===============================================");
-            } else {
-                Log.info("No updates were available. You are on the latest version!");
-            }
-        });
+//        final UpdateChecker updateChecker = new UpdateChecker(this, RESOURCE_ID);
+//        updateChecker.check((hasUpdate, newVersion) -> {
+//            if (hasUpdate) {
+//                TokenManagerPlugin.this.updateAvailable = true;
+//                TokenManagerPlugin.this.newVersion = newVersion;
+//                Log.info("===============================================");
+//                Log.info("An update for " + getName() + " is available!");
+//                Log.info("Download " + getName() + " v" + newVersion + " here:");
+//                Log.info(getDescription().getWebsite());
+//                Log.info("===============================================");
+//            } else {
+//                Log.info("No updates were available. You are on the latest version!");
+//            }
+//        });
         getServer().getPluginManager().registerEvents(this, this);
     }
 
@@ -271,7 +272,7 @@ public class TokenManagerPlugin extends JavaPlugin implements TokenManager, List
     @Override
     public boolean reload() {
         if (!(unload() && load())) {
-            getPluginLoader().disablePlugin(this);
+            Bukkit.getPluginManager().disablePlugin(this);
             return false;
         }
 
