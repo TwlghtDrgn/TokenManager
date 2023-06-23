@@ -102,13 +102,7 @@ public class Lang extends AbstractConfiguration<TokenManagerPlugin> implements R
     }
 
     public String getMessage(final String key) {
-        final String message = getRawMessage(key);
-
-        if (message == null) {
-            return null;
-        }
-
-        return StringUtil.color(message);
+        return getRawMessage(key);
     }
 
     public String getMessage(final String key, final Object... replacers) {

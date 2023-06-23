@@ -59,7 +59,7 @@ public class ShopManager implements Loadable, Listener {
             }
 
             player.closeInventory();
-            player.sendMessage(StringUtil.color("&cShop was automatically closed since the plugin is deactivating."));
+            player.sendMessage(StringUtil.color("<red>Shop was automatically closed since the plugin is deactivating."));
         });
         cache.clear();
     }

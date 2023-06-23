@@ -91,8 +91,8 @@ public class Config extends AbstractConfiguration<TokenManagerPlugin> {
         openSelectedEnabled = configuration.getBoolean("shop.open-selected.enabled", false);
         openSelectedShop = configuration.getString("shop.open-selected.shop", "example").toLowerCase();
         confirmPurchaseTitle = configuration.getString("shop.confirm-purchase-gui.title", "Confirm Your Purchase");
-        confirmPurchaseConfirm = configuration.getString("shop.confirm-purchase-gui.confirm-button", "STAINED_CLAY:5 1 name:&a&lBUY lore:&7Price:_&a%price%_tokens");
-        confirmPurchaseCancel = configuration.getString("shop.confirm-purchase-gui.cancel-button", "STAINED_CLAY:14 1 name:&c&lCANCEL");
+        confirmPurchaseConfirm = configuration.getString("shop.confirm-purchase-gui.confirm-button", "STAINED_CLAY:5 1 name:<green><b>BUY lore:&7Price:_&a%price%_tokens");
+        confirmPurchaseCancel = configuration.getString("shop.confirm-purchase-gui.cancel-button", "STAINED_CLAY:14 1 name:<red><b>CANCEL");
         clickDelay = configuration.getInt("shop.click-delay", 0);
         checkInventoryFull = configuration.getBoolean("shop.check-inventory-full", false);
         logPurchases = configuration.getBoolean("shop.log-purchases", false);

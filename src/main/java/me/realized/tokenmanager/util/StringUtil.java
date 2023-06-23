@@ -1,7 +1,11 @@
 package me.realized.tokenmanager.util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.ChatColor;
 
 public final class StringUtil {
@@ -20,17 +24,21 @@ public final class StringUtil {
         return builder.toString();
     }
 
-    public static String color(final String input) {
-        return ChatColor.translateAlternateColorCodes('&', input);
+    public static Component color(final String input) {
+        return MiniMessage.miniMessage().deserialize(input);
     }
 
-    public static List<String> color(final List<String> input) {
+    public static List<Component> color(final List<String> input) {
         return color(input, null);
     }
 
-    public static List<String> color(final List<String> input, final Function<String, String> extra) {
-        input.replaceAll(s -> s = color(extra != null ? extra.apply(s) : s));
-        return input;
+    public static List<Component> color(final List<String> input, final Function<String, String> extra) {
+        List<Component> cs = new ArrayList<>();
+        input.replaceAll(s -> extra != null ? extra.apply(s) : s);
+        for (String in:input) {
+            cs.add(MiniMessage.miniMessage().deserialize(in));
+        }
+        return cs;
     }
 
     public static String format(long seconds) {

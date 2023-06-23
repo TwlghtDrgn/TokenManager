@@ -1,3 +1,6 @@
+<h5>WARNING: This fork of TM uses MiniMesage instead of legacy color codes (ex. `<red>` instead of `&c` and so on).
+Make sure to backup your config files and migrate onto MiniMessage before updating </h5>
+
 <h1>TokenManager</h1> 
 
 [![](https://jitpack.io/v/Realizedd/TokenManager.svg)](https://jitpack.io/#Realizedd/TokenManager)

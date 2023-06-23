@@ -212,13 +212,13 @@ public final class ItemUtil {
         final ItemMeta meta = item.getItemMeta();
 
         if (key.equalsIgnoreCase("name")) {
-            meta.setDisplayName(StringUtil.color(value.replace("_", " ")));
+            meta.displayName(StringUtil.color(value.replace("_", " ")));
             item.setItemMeta(meta);
             return;
         }
 
         if (key.equalsIgnoreCase("lore")) {
-            meta.setLore(StringUtil.color(Lists.newArrayList(value.split("\\|")), line -> line.replace("_", " ")));
+            meta.lore(StringUtil.color(Lists.newArrayList(value.split("\\|")), line -> line.replace("_", " ")));
             item.setItemMeta(meta);
             return;
         }

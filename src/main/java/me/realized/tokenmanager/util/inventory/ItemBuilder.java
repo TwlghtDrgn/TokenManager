@@ -33,7 +33,7 @@ public final class ItemBuilder {
 
     public ItemBuilder name(final String name) {
         ItemMeta meta = result.getItemMeta();
-        meta.setDisplayName(StringUtil.color(name));
+        meta.displayName(StringUtil.color(name));
         result.setItemMeta(meta);
         return this;
     }
@@ -44,7 +44,7 @@ public final class ItemBuilder {
 
     public ItemBuilder lore(final List<String> lore) {
         ItemMeta meta = result.getItemMeta();
-        meta.setLore(StringUtil.color(lore));
+        meta.lore(StringUtil.color(lore));
         result.setItemMeta(meta);
         return this;
     }

@@ -26,11 +26,10 @@ version '3.2.8'
 compileJava.options.encoding = 'UTF-8'
 
 processResources {
-    def group = project.group.toString() + "." + project.name.toLowerCase() + ".shaded"
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
     from(sourceSets.main.resources.srcDirs) {
-//        include '**/*.yml'
-        filter(ReplaceTokens, tokens: [NAME: project.name, VERSION: project.version, SHADED_GROUP: group])
+        include '**/*.yml'
+        filter(ReplaceTokens, tokens: [VERSION: project.version])
     }
 }
 

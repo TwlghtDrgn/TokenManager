@@ -40,18 +40,12 @@ public abstract class BaseCommand extends AbstractCommand<TokenManagerPlugin> {
     @Override
     protected void handleMessage(final CommandSender sender, final MessageType type, final String... args) {
         switch (type) {
-            case PLAYER_ONLY:
-                sendMessage(sender, false, "&cThis command can only be executed by a player!");
-                break;
-            case NO_PERMISSION:
-                sendMessage(sender, true, "ERROR.no-permission", "permission", args[0]);
-                break;
-            case SUB_COMMAND_INVALID:
-                sendMessage(sender, true, "ERROR.invalid-sub-command", "command", args[0], "input", args[1]);
-                break;
-            case SUB_COMMAND_USAGE:
-                sendMessage(sender, true, "COMMAND.sub-command-usage", "command", args[0], "usage", args[1]);
-                break;
+            case PLAYER_ONLY -> sendMessage(sender, false, "&cThis command can only be executed by a player!");
+            case NO_PERMISSION -> sendMessage(sender, true, "ERROR.no-permission", "permission", args[0]);
+            case SUB_COMMAND_INVALID ->
+                    sendMessage(sender, true, "ERROR.invalid-sub-command", "command", args[0], "input", args[1]);
+            case SUB_COMMAND_USAGE ->
+                    sendMessage(sender, true, "COMMAND.sub-command-usage", "command", args[0], "usage", args[1]);
         }
     }
 }

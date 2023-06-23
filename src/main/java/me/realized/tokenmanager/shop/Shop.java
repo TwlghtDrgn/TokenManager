@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import me.realized.tokenmanager.util.Placeholders;
 import me.realized.tokenmanager.util.StringUtil;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -14,7 +15,7 @@ public class Shop {
 
     @Getter
     private final String name;
-    private final String title;
+    private final Component title;
     @Getter(value = AccessLevel.PACKAGE)
     private final Inventory inventory;
     @Getter
@@ -38,8 +39,8 @@ public class Shop {
 
         this.name = name;
 
-        if (title.length() > 32) {
-            throw new IllegalArgumentException("Shop title cannot be longer than 32 characters.");
+        if (title.length() > 256) {
+            throw new IllegalArgumentException("Shop title cannot be longer than 256 characters.");
         }
 
         if (rows <= 0 || rows > 6) {
@@ -47,13 +48,13 @@ public class Shop {
         }
 
         this.title = StringUtil.color(title);
-        this.inventory = Bukkit.createInventory(null, rows * 9, title);
+        this.inventory = Bukkit.createInventory(null, rows * 9, this.title);
         this.autoClose = autoClose;
         this.usePermission = usePermission;
         this.confirmPurchase = confirmPurchase;
     }
 
-    public String getTitle() {
+    public Component getTitle() {
         return title;
     }
 

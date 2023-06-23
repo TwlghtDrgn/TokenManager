@@ -31,8 +31,8 @@ shop:
     title: 'Confirm Your Purchase'
     # Use the placeholder %price% in the name or the lore of the confirm-button to display the price of the item to be purchased.
     # NOTE: In Minecraft 1.13, stained glass panes were assigned their own material name. If buttons below won't load, use the new material name.
-    confirm-button: 'STAINED_CLAY:5 1 name:&a&lBUY lore:&7Price:_&a%price%_tokens'
-    cancel-button: 'STAINED_CLAY:14 1 name:&c&lCANCEL'
+    confirm-button: 'STAINED_CLAY:5 1 name:<green><bold>BUY lore:<gray>Price:_<green>%price%_tokens'
+    cancel-button: 'STAINED_CLAY:14 1 name:<red><bold>CANCEL'
 
   # Set a delay between purchases. 0 for no delay.
   click-delay: 0

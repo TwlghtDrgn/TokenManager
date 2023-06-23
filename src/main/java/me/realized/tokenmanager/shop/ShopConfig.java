@@ -129,7 +129,7 @@ public class ShopConfig extends AbstractConfiguration<TokenManagerPlugin> implem
 
         final Config config = plugin.getConfiguration();
 
-        this.confirmGuiSample = GUIBuilder.of(StringUtil.color(config.getConfirmPurchaseTitle()), 3)
+        this.confirmGuiSample = GUIBuilder.of(config.getConfirmPurchaseTitle(), 3)
             .pattern(
                 Pattern.of("AAABBBCCC", "AAABBBCCC", "AAABBBCCC")
                     .specify('A', Items.GREEN_PANE.clone())
